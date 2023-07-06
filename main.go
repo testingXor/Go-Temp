@@ -1,6 +1,4 @@
 // Issue 89
-// Writting tainted data into Context.Redirect can
-// result in Open Redirect attack.
 
 package main
 
