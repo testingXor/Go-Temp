@@ -13,6 +13,14 @@ func main() {
 		v := v
 		go func() {
 			fmt.Println(v)
+			// OpenRefactory Warning:
+			// Possible blocking channel operation!
+			//
+			// In goroutine #1:
+			//	File: src.go, Line: 16
+			//		done <- true
+			//		In function main$1, there is a send operation.
+			//		But no matching receive operation is found on that channel from any other goroutine.
 			done <- true
 		}()
 	}
