@@ -13,6 +13,9 @@ func handler(w http.ResponseWriter, req *http.Request) {
 	target := req.FormValue("target")
 	url := fmt.Sprintf("https://%s.example.com/data/", target)
 	client := &http.Client{}
+	// OpenRefactory Warning:
+	// No timeout is set to HTTP client
+	// which may cause the client to wait indefinitely.
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Fprintf(w, "Error fetching URL: %v", err)
