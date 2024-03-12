@@ -12,6 +12,9 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		// OpenRefactory Warning:
+		// Setting 'Access-Control-Allow-Origin' to '*' will enable
+		// a loose CORS policy which is security sensitive.
 		w.Header().Set("Access-Control-Allow-Origin", starVal)
 		w.Write([]byte("{\"hello\": \"world\"}"))
 	})
