@@ -22,6 +22,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	// OpenRefactory Warning:
+	// No timeout is set to HTTP client
+	// which may cause the client to wait indefinitely.
 	resp, err := client.Post(urlParam, "application/x-www-form-urlencoded", strings.NewReader(data.Encode()))
 	if err != nil {
 		fmt.Fprintf(w, "Error fetching URL: %v", err)
